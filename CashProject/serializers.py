@@ -2,12 +2,6 @@ from .models import *
 from rest_framework import serializers
 
 
-class UserProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserProfile
-        fields = ('id', 'email', 'balance', 'currency', 'password')
-
-
 class CurrencySerializer(serializers.ModelSerializer):
     class Meta:
         model = Currency
@@ -18,3 +12,10 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = ('id', 'who', 'whom', 'how')
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CustomUser
+        fields = ('id', 'email', 'balance', 'currency', 'password')
